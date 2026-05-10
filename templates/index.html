@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Roboflow + Replit Example</title>
+
+  <!-- Загрузить roboflow.js, скрипт, который будет обрабатывать загрузку и запуск нашей модели компьютерного зрения в браузере -->
+  <script src="https://cdn.jsdelivr.net/npm/inferencejs"></script>
+  
+  <link rel="stylesheet" href="/static/styles.css" />
+
+  <script>
+    // Замените приведенный ниже ключ на ваш доступный для публикации ключ Roboflow
+    var publishable_key = "rf_l8GLzZgLQL6gZLAin1iU";
+
+    // Измените эти значения, чтобы задать название вашей модели, версию и
+    // порог достоверности, который должен быть соблюден, чтобы модель вернула
+    // прогноз.
+
+    // Мы рекомендуем установить низкое значение CONFIDENCE_THRESHOLD во время тестирования
+   // и отфильтровываем прогнозы по уровню достоверности с помощью фильтра 
+    //"% достоверности прогноза"
+
+    const CONFIDENCE_THRESHOLD = 0.1;
+    const MODEL_NAME = "microsoft-coco";
+    const MODEL_VERSION = 9;
+  </script>
+</head>
+
+<body>
+  <main>
+    <h1>Roboflow + Replit Web Example 🚀</h1>
+    <p>Roboflow enables you to build and run custom computer vision models in your browser, on your device (i.e. NVIDIA
+      Jetson, Luxonis OAK, via Docker), and via API.
+    </p>
+    <p>The below example runs <a href="https://universe.roboflow.com/jacob-solawetz/microsoft-coco">Microsoft's
+        COCO</a> model to identify common objects, which is one of 50,000 open source models ready to use on <a
+        href="https://universe.roboflow.com">Roboflow Universe</a></p>
+
+    <p>Using the demo below, you can identify <a href="https://universe.roboflow.com/jacob-solawetz/microsoft-coco">80
+        different objects</a> using your webcam, from people to chairs to cups.</p>
+
+    <p id="loading">Loading...</p>
+
+    <!-- Приведенный ниже холст является обязательным -->
+    <section class="infer-widget">
+      <canvas width="640" height="480" id="video_canvas"></canvas>
+    </section>
+
+    <section id="settings">
+      <label for="confidence">Prediction Confidence %</label><br>
+      <input type="range" min="1" max="100" value="60" class="slider" id="confidence">
+    </section>
+
+    <section class="links">
+      <a href="https://blog.roboflow.com/getting-started-with-roboflow/" class="styled-button">Build a Custom Model</a>
+      <a href="https://universe.roboflow.com" class="styled-button styled-button-turqouise">Explore 50k+
+        Models and Datasets</a>
+    </section>
+
+    <!-- Загрузите логику нашего приложения -->
+    <script src="/static/script.js"></script>
+  </main>
+</body>
+
+</html>
