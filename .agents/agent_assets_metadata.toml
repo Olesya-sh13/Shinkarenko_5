@@ -1,8 +1,0 @@
-uploads = []
-generated = []
-
-[[outputs]]
-id = "0LRrbToeHJONXncddL6me"
-uri = "file://Shinkarenko_5/Отчёт_Roboflow_Web_Quickstart.docx"
-type = "word_document"
-title = "Отчёт по паттерну Roboflow Web Quickstart"
