@@ -5,7 +5,7 @@
 // После этого модель инициализируется и начинает делать прогнозы
 // При первом прогнозировании в detectFrame() выполняется шаг инициализации для подготовки холста, на котором отображаются прогнозы.
 
-
+// Блок 1: Блок объявления глобальных переменных и конфигурации
 var bounding_box_colors = {};
 
 var user_confidence = 0.6;
@@ -33,7 +33,7 @@ var ctx = canvas.getContext("2d");
 const inferEngine = new inferencejs.InferenceEngine(); // Создаем экземпляр движка вывода
 var modelWorkerId = null; // Идентификатор рабочего процесса модели
 
-
+// Блок 2: Блок управления циклом вывода — функция detectFrame()
 function detectFrame() {
  // При первом запуске инициализируйте холст
  // При всех запусках выполняйте вывод с использованием видеокадра
@@ -64,7 +64,7 @@ function detectFrame() {
     }
   });
 }
-
+// Блок 3: Блок отрисовки предсказаний — функция drawBoundingBoxes()
 function drawBoundingBoxes(predictions, ctx) {
  // Для каждого прогноза выберите или назначьте цвет ограничивающей рамки,
  // затем примените необходимое масштабирование, чтобы ограничивающие рамки отображались точно вокруг предсказания.
@@ -112,7 +112,7 @@ function drawBoundingBoxes(predictions, ctx) {
     ctx.fillText(prediction.class + " " + Math.round(confidence * 100) + "%", x, y - 10); // Надпись с именем класса и уверенностью
   }
 }
-
+// Блок 4: Блок захвата видеопотока и инициализации модели — функция webcamInference()
 function webcamInference() {
   // Запрашиваем разрешение на использование веб-камеры пользователя
   var loading = document.getElementById("loading");
@@ -170,7 +170,7 @@ function webcamInference() {
       console.log(err);
     });
 }
-
+// Блок 5: Блок управления пользовательским вводом и запуск приложения
 function changeConfidence () {
   user_confidence = document.getElementById("confidence").value / 100;
 }

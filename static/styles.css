@@ -1,3 +1,4 @@
+/* Блок 1: Блок базовых стилей страницы */
 html, body {
   height: 100%;
   width: 100%;
@@ -7,7 +8,7 @@ html, body {
 p, a {
   line-height: 1.5em;
 }
-
+/*Блок 2: Блок управления видимостью элементов*/
 #loading {
   display: none;
 }
@@ -16,7 +17,7 @@ p, a {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
+/* Блок 3: Блок стилей типографики и цветовой схемы*/
 h1, a {
   color: #6706ce;
 }
@@ -28,7 +29,7 @@ label {
 a {
   text-decoration: none;
 }
-
+/* Блок 4: Блок разметки и позиционирования элементов*/
 main {
   width: 40em;
   margin: auto;
